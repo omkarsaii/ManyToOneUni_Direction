@@ -53,7 +53,7 @@ public class CompanyDao {
 		Company company=entityManager.find(Company.class, id);
 		
 		if(company!=null)
-		{
+		{ 
 			entityTransaction.begin();
 			entityManager.remove(company);
 			entityTransaction.commit();
