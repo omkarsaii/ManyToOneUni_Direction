@@ -45,4 +45,23 @@ public class CompanyDao {
 		}
 		
 	}
+	
+	public void DeleteById(int id)
+	{
+		EntityManager entityManager=getEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		Company company=entityManager.find(Company.class, id);
+		
+		if(company!=null)
+		{
+			entityTransaction.begin();
+			entityManager.remove(company);
+			entityTransaction.commit();
+			System.out.println("Company deleted successfully");
+		}
+		else
+		{
+			System.out.println("Company doesnt exist");
+		}
+	}
 }

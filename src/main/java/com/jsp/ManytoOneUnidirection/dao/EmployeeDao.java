@@ -48,4 +48,24 @@ public class EmployeeDao {
 		}
 	}
 	
+	public void deleteById(int id)
+	{
+		EntityManager entityManager=getEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		Employee employee=entityManager.find(Employee.class, id);
+		
+		if(employee!=null)
+		{
+			entityTransaction.begin();
+			entityManager.remove(employee);
+			entityTransaction.commit();
+			System.out.println("Employee deleted Successfully");
+		}
+		else
+		{
+			System.out.println("Employee is not present");
+		}
+		
+	}
+	
 }
