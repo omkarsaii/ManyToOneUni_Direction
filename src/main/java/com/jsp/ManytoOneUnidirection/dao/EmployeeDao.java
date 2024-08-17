@@ -47,7 +47,7 @@ public class EmployeeDao {
 			System.out.println("employee is not present");
 		}
 	}
-	
+
 	public void deleteById(int id)
 	{
 		EntityManager entityManager=getEntityManager();
